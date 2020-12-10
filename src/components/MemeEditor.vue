@@ -24,9 +24,10 @@
         v-if="this.form.index === undefined"
         variant="success"
         @click="addMeme"
+        :disabled="form.image == null"
         >Add Meme</b-button
       >
-      <b-button v-else type="submit" variant="success" @click="updateMeme"
+      <b-button v-else type="submit" variant="success" @click="updateMeme"  :disabled="form.image ==  null"
         >Update Meme</b-button
       >
     </b-form>
@@ -81,7 +82,6 @@ export default class MemeEditor extends Vue {
     this.form.description = value.meme.description;
     this.form.title = value.meme.title;
     this.form.index = value.index;
-    this.form.image = null
   }
 
   resetForm() {
